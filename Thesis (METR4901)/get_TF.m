@@ -65,5 +65,4 @@ end
 
 %% Tidy Up
 signpost(verbose,'Done: get_TF()')
-H
 end

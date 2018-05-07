@@ -26,13 +26,19 @@ syms T1 T2 T3
 
 t = Transfer_Functions;
 
+%% Values Proxies
+g_ = 9.81;
+a_Max = pi;
+a_Min = 0;
+
+Angle = a_Max %a_Max or a_Min
+
 %% Set Values
-g_ = 1;
 
 % 1
 l1_ = 1;
 L1_ = 1;
-a1_ = 1;
+a1_ = Angle;
 da1_ = 1;
 dda1_ = 1;
 Ixx1_ = 1;
@@ -43,7 +49,7 @@ m1_ = 1;
 % 2
 l2_ = 2;
 L2_ = 2;
-a2_ = 2;
+a2_ = Angle;
 da2_ = 2;
 dda2_ = 2;
 Ixx2_ = 2;
@@ -54,7 +60,7 @@ m2_ = 2;
 % 3
 l3_ = 3;
 L3_ = 3;
-a3_ = 3;
+a3_ = Angle;
 da3_ = 3;
 dda3_ = 3;
 Ixx3_ = 3;
