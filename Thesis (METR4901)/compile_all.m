@@ -8,6 +8,6 @@ syms s
 Transfer_Functions = collect(get_EOM(DOF),s)
 H = get_TF(Transfer_Functions)
 sys = H(A)
-type = 'PID'
+type = 'PID2'
 pidTuner(sys,type)
 end
