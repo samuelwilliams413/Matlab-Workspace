@@ -4,27 +4,25 @@ s_values = [0,2,6]
 
 % %% Values to be tested
 % [0, 2]
+% [0, 4]
 % [0, 6]
-% [0, 10]
 % [1, 2]
-% [1, 6]
+% [1, 4]
 % [5, 2]
-% [5, 6]
+% [5, 4]
 % [10, 2]
-% [10, 6]
+% [10, 4]
 % [25, 2]
-% [25, 6]
+% [25, 4]
 % [50, 0]
-% [50, 2]
-% [50, 6]
 % [100, 0]
 % [150, 0]
 
 MOUNTING_X = (3720-1115)/1000;
-forward_distance = 150;
+forward_distance = 0;
 
 car_width = 1610/1000;
-side_distance = 0;
+side_distance = car_width;
 plot_method = '-*';
 
 real_space = false;
