@@ -18,12 +18,12 @@ K = [f/a, y, u_0, 0; 0, f/a, v_0, 0; 0, 0, 1, 0];
 
 %% R: 3D Rotational Matirx
 % No rotation
-theta = 0/1000;
+theta = 100/1000;
 R_1 = [1,0,theta;0,1,0;-theta,0,1;0,0,0];
 R_2 = [1,0,-theta;0,1,0;theta,0,1;0,0,0];
 
 %% T: 3D Rotational Matirx
-baseline_offset = 1/2; % 1 meter between two cameras
+baseline_offset = 2/2; % 1 meter between two cameras
 T_1 = transpose([baseline_offset, 0, 0, 1]);
 T_2 = -T_1;
 

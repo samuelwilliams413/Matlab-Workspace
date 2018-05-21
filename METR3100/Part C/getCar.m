@@ -1,35 +1,98 @@
-function [] = getCar()
-
-%l_cab() = [0, (3720-1115)];
-%h_cab() = [0, 1625];
-%w_cab() = [0, 1610];
-
-l_cab_1 = [0, (3720-1115)];
-h_cab_1 = [1625, 1625];
-w_cab_1 = [1610, 1610];
-l_cab_2 = [0, (3720-1115)];
-h_cab_2 = [0, 0];
-w_cab_2 = [0, 0];
-l_cab_3 = [0, (3720-1115)];
-h_cab_3 = [1625, 1625];
-w_cab_3 = [0, 0];
-l_cab_4 = [0, (3720-1115)];
-h_cab_4 = [0, 0];
-w_cab_4 = [1610, 1610];
-
+function [car_coord] = getCar()
 
 l_cab = (3720-1115);
 h_cab = 1625;
-w_cab = 
+w_cab = 1610;
+l_bon = 1115;
+h_bon = 900;
+w_bon = 1610;
 
-close all
-figure
-hold on
-plot3(l_cab_1,w_cab_1,h_cab_1)
-plot3(l_cab_2,w_cab_2,h_cab_2)
-plot3(l_cab_3,w_cab_3,h_cab_3)
-plot3(l_cab_4,w_cab_4,h_cab_4)
-xlabel('X: length') % x-axis label
-zlabel('Z: Height') % y-axis label
-ylabel('Y: Width') % z-axis label
+
+cab_coord = zeros(8,3);
+
+i = 1;
+for x = 1:2
+    for y = 1:2
+        for z = 1:2
+            if(x == 1)
+                xx = l_cab;
+            else
+                xx = 0;
+            end
+            
+            if(y == 1)
+                yy = w_cab;
+            else
+                yy = 0;
+            end
+            
+            if(z == 1)
+                zz = h_cab;
+            else
+                zz = 0;
+            end
+            
+            cab_coord(i, 1) = xx;
+            cab_coord(i, 2) = yy;
+            cab_coord(i, 3) = zz;
+            i = i + 1;
+        end
+    end
+end
+
+bon_coord = zeros(8,3);
+
+i = 1;
+for x = 1:2
+    for y = 1:2
+        for z = 1:2
+            if(x == 1)
+                xx = l_bon;
+            else
+                xx = 0;
+            end
+            
+            xx = xx + (3720-1115);
+            
+            if(y == 1)
+                yy = w_bon;
+            else
+                yy = 0;
+            end
+            
+            if(z == 1)
+                zz = h_bon;
+            else
+                zz = 0;
+            end
+            
+            bon_coord(i, 1) = xx;
+            bon_coord(i, 2) = yy;
+            bon_coord(i, 3) = zz;
+            i = i + 1;
+        end
+    end
+end
+
+
+
+PLOTTING = false;
+if(PLOTTING)
+    close all
+    figure
+    hold on
+    for i = 1:8
+        plot3(cab_coord(i,1),cab_coord(i,2),cab_coord(i,3),'*')
+    end
+    for i = 1:8
+        plot3(bon_coord(i,1),bon_coord(i,2),bon_coord(i,3),'*')
+    end
+    xlabel('X: length') % x-axis label
+    zlabel('Z: Height') % y-axis label
+    ylabel('Y: Width') % z-axis label
+end
+
+
+car_coord = transpose([transpose(cab_coord), transpose(bon_coord)])/1000;
+
 end

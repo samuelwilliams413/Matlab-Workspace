@@ -1,0 +1,32 @@
+function [car_coordinates] = getTestParameters();
+distances_forward = [0,1,5,10,25,50];
+distances_sideway = [0,2,6,10];
+
+car_length = 3720/1000;
+car_width = 1610/1000;
+
+count = 1;
+for f = 1:length(distances_forward)
+    for s = 1:length(distances_sideway)
+        if(f ~= 1) || (s ~= 1) % [0,0] doesn't exist as a coordinate
+            if (distances_forward(f) == 0)
+                x_offset = 0;
+                y_offset = (car_width/2) + distances_sideway(s);
+                z_offset = 0;
+            else
+                x_offset = (car_length) + distances_forward(f);
+                y_offset = (car_width/2) + distances_sideway(s);
+                z_offset = 0;
+                
+                if (distances_sideway(s) == 0)
+                    y_offset = 0;
+                end
+                C = getCarAt(x_offset, y_offset, z_offset);
+                car_coordinates(count,:,1) = C(:,1);
+                car_coordinates(count,:,2) = C;
+                car_coordinates(count,:,3) = C;
+                count = count + 1;
+            end
+        end
+    end
+end
