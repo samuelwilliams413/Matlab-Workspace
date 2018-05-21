@@ -1,6 +1,6 @@
 function [wc_1, u_1, v_1, wc_2, u_2, v_2] = getCameraCoordinates(focal_length, world_coordinates)
-focal_length = focal_length
-world_coordinates = world_coordinates
+focal_length = focal_length;
+world_coordinates = world_coordinates;
 f = focal_length;
 x = world_coordinates;
 %% K: Intrinsic Camera Parameters

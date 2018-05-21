@@ -16,22 +16,22 @@ for f = 1:length(distances_forward)
     for s = 1:length(distances_sideway)
         
         if (distances_forward(f) == 0)
-            side_offset = 0;
-            forward_offset = (car_width/2) + distances_sideway(s);
+            x_off = 0;
+            y_off = (car_width/2) + distances_sideway(s);
             z_offset = 0;
         else
-            side_offset = (car_length) + distances_forward(f);
-            forward_offset = (car_width/2) + distances_sideway(s);
+            x_off = (car_length) + distances_forward(f);
+            y_off = (car_width/2) + distances_sideway(s);
             z_offset = 0;
         end
         
         if (distances_sideway(s) == 0)
-            forward_offset = 0;
+            y_off = 0;
         end
         
-        off = [side_offset, forward_offset,z_offset]
-        if ((side_offset ~= 0) || (forward_offset ~= 0))
-            C = getCarAt(forward_offset, side_offset, z_offset);
+        off = [x_off, y_off,z_offset]
+        if ((x_off ~= 0) || (y_off ~= 0))
+            C = getCarAt(x_off, y_off, z_offset);
             if(PLOTTING)
                 for i = 1:16
                     plot3(C(i,1),C(i,2),C(i,3),'*')
