@@ -21,10 +21,10 @@ s_values = [0,2,6]
 % [150, 0]
 
 MOUNTING_X = (3720-1115)/1000;
-forward_distance = 150;
+forward_distance = 0;
 
 car_width = 1610/1000;
-side_distance = 0;
+side_distance = car_width + 10;
 plot_method = '-*';
 
 real_space = false;

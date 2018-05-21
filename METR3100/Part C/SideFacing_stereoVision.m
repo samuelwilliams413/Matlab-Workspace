@@ -4,26 +4,33 @@ s_values = [0,2,6]
 
 % %% Values to be tested
 % [0, 2]
-% [0, 4]
 % [0, 6]
+% [0, 10]
 % [1, 2]
-% [1, 4]
+% [1, 6]
 % [5, 2]
-% [5, 4]
+% [5, 6]
 % [10, 2]
-% [10, 4]
+% [10, 6]
 % [25, 2]
-% [25, 4]
+% [25, 6]
 % [50, 0]
+% [50, 2]
+% [50, 6]
 % [100, 0]
 % [150, 0]
 
-MOUNTING_X = (3720-1115)/1000;
-forward_distance = 0;
 
 car_width = 1610/1000;
-side_distance = car_width;
+MOUNTING_X = car_width;
+forward_distance = 6;
+
+side_distance = -3720/2000 - 1;
 plot_method = '-*';
+
+fd = forward_distance;
+forward_distance = side_distance;
+side_distance = fd;
 
 real_space = false;
 
@@ -95,9 +102,9 @@ XXX = xw;
 YYY = yw;
 ZZZ = zw;
 
-xw = YYY;
+xw = XXX;
 yw = ZZZ;
-zw = XXX;
+zw = YYY;
 
 
 if (real_space)
@@ -107,9 +114,9 @@ if (real_space)
     close all
     figure
     hold on
-    plot3(0, 1, 0, '*')
+    plot3(1, 0, 0, '*')
     hold on
-    plot3(0, -1, 0, '*')
+    plot3(-1, 0, 0, '*')
     hold on
     plot3(xw, yw, zw, '-o')
     axis equal
