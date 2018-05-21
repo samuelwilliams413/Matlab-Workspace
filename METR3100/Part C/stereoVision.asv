@@ -1,0 +1,24 @@
+function [] = stereoVision()
+%STEREOVISION
+
+
+real_space = true;
+if (real_space)
+    close all
+    figure
+    hold on
+    plot3(0, 1, 0, '*')
+    hold on
+    plot3(0, -1, 0, '*')
+    hold on
+    
+    xw = 0.5;
+    yw = -0.1;
+    zw = 3;
+    plot3(xw, yw, zw, 'o')
+else
+    
+end
+end
+
+
