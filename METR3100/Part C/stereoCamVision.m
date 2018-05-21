@@ -8,7 +8,8 @@ xw = 0.5;
 yx = -0.1;
 zw = 3;
 
-points = getCarLine(0,(-1610/1000),(-1625/1000));
+%points = getCarLine(50,(1610/1000)/2,(1625/1000)/2);
+points = getCarLine(0,0,0);
 pl = size(points);
 pl = pl(1);
 for p = 1:pl
@@ -63,7 +64,7 @@ for p = 1:pl
     end
 end
 %% Plotting
-PLOTTING = true
+PLOTTING = false
 if(PLOTTING)
     close all
     figure
@@ -86,7 +87,7 @@ if(PLOTTING)
             hold on
             
             for p = 1:pl
-                plot((u(p,fl, camera)), v(p,fl, camera), '*')
+                plot((u(p,fl, camera)), v(p,fl, camera), '.')
             end
             
             xlabel('u') % x-axis label
@@ -97,6 +98,29 @@ if(PLOTTING)
         end
         
     end
-   % linkaxes([sbpt(1), sbpt(2), sbpt(3), sbpt(4), sbpt(5), sbpt(6)],'xy')
+    % linkaxes([sbpt(1), sbpt(2), sbpt(3), sbpt(4), sbpt(5), sbpt(6)],'xy')
+else
+    fl = 1
+    camera = 1
+    close all
+    figure
+    hold on
+    xw = 0.5;
+    yw = -0.1;
+    zw = 3;
+    plot3(0, 1, 0, '*')
+    hold on
+    plot3(0, -1, 0, '*')
+    hold on
+    plot3(xw, yw, zw, 'o')
+    
+    x = getCarLine(10,0,0);
+    pl = size(x);
+    pl = pl(1);
+    for p = 1:pl
+    hold on
+        plot(x(p,:), '.')
+    end
+    
 end
 end
