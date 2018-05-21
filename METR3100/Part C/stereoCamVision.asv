@@ -1,0 +1,12 @@
+function [] = stereoCamVision()
+f = 10; % mm
+
+%% K: Intrinsic Camera Parameters
+a = 1;
+skew = 0;
+skew = 0;
+sensor_offset = 0;
+u_0 = sensor_offset;
+v_0 = sensor_offset;
+end
+
