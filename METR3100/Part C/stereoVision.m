@@ -93,6 +93,16 @@ xw = [x_A, x_B, x_D, x_E, x_F];
 yw = [y_A, y_B, y_D, y_E, y_F];
 zw = [z_A, y_C, z_D, z_E, z_F];
 
+
+%% here i am overwriting values to demostrate the minimum field of vision
+xw = []
+yw = []
+zw = []
+
+xw = [2]
+yw = [0]
+zw = [1.5]
+
 XXX = xw;
 YYY = yw;
 ZZZ = zw;
