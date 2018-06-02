@@ -119,7 +119,7 @@ if TwoDOF || OneDOF
 end
 
 
-
+%% Get P
 %Angles (relative)
 alpha = a1;
 beta = alpha + a2;
