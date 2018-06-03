@@ -275,7 +275,7 @@ for i = 1:N
     
     torque(i) = simplify(torque(i));
 end
-EOM = torque;
+EOM = torque
 
 %% Finding Laplace EOM
 % pull apart
@@ -525,7 +525,7 @@ E(1,1) = (Ts(1,1) == Ts(1,2));
 E(2,1) = (Ts(2,1) == Ts(2,2));
 E(3,1) = (Ts(3,1) == Ts(3,2));
 
-Laplace_EOM = E;
+Laplace_EOM = E
 
 %% Finding Transfer Functions
 signpost(verbose,'Finding Transfer Functions')
@@ -579,7 +579,7 @@ end
 
 Solution(3,1) = f;
 
-Transfer_Functions = Solution;
+Transfer_Functions = Solution
 
 %% Tidy Up
 signpost(verbose,'Done: get_EOM()')
