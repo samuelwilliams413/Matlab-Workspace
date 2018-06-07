@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>function [ ] = signpost(flag, statement)</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-07"><meta name="DC.source" content="signpost.m"><style type="text/css">
+      --><title>compile_all</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-07"><meta name="DC.source" content="compile_all.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,33 +66,34 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>function [ ] = signpost(flag, statement)</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">Signpost</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> [ ] = signpost(flag, statement)
-</pre><h2 id="2">Signpost</h2><p>Takes an input flag, if true the given statement is printed (used for debugging and checking progress). This allows for print dialogues to be controlled via centralised variables</p><pre class="codeinput"><span class="keyword">if</span>(flag)
-    disp(statement)
-<span class="keyword">end</span>
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3">REMEMBER EVERYTHING IS IN RADIANS</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> [H] = compile_all(DOF, A)
+</pre><pre class="codeinput">Degrees_Of_Freedom = DOF
+Degree_To_Analyse = A
 </pre><pre class="codeoutput error">Not enough input arguments.
 
-Error in signpost (line 11)
-if(flag)
+Error in compile_all (line 2)
+Degrees_Of_Freedom = DOF
+</pre><h2 id="3">REMEMBER EVERYTHING IS IN RADIANS</h2><pre class="codeinput">syms <span class="string">s</span>
+Transfer_Functions = collect(get_EOM(DOF),s)
+H = get_TF(Transfer_Functions)
+sys = H(A)
+type = <span class="string">'PID'</span>
+pidTuner(sys,type)
 </pre><pre class="codeinput"><span class="keyword">end</span>
 </pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%% function [ ] = signpost(flag, statement)
-%
+function [H] = compile_all(DOF, A)
+Degrees_Of_Freedom = DOF
+Degree_To_Analyse = A
+
+%% REMEMBER EVERYTHING IS IN RADIANS
 %%
-
-function [ ] = signpost(flag, statement)
-%% Signpost
-% Takes an input flag, if true the given statement is printed (used for
-% debugging and checking progress). This allows for print dialogues to be
-% controlled via centralised variables
-
-if(flag)
-    disp(statement)
+syms s
+Transfer_Functions = collect(get_EOM(DOF),s)
+H = get_TF(Transfer_Functions)
+sys = H(A)
+type = 'PID'
+pidTuner(sys,type)
 end
-
-end
-
-
 ##### SOURCE END #####
 --></body></html>

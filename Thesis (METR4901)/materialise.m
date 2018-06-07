@@ -1,4 +1,4 @@
-%% function [] = imma_real_boy(Transfer_Functions)
+%% function [] = materialise(Transfer_Functions)
 %
 %%
 function [Transfer_Functions] = materialise(Transfer_Functions)

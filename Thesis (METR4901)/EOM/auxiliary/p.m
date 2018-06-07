@@ -4,8 +4,8 @@
 
 function [ ] = p(variable)
 %% p - Quick Print
-% This function takes a variable, retrieves the variable name, and then 
-% obtains the line in the parent function from which it was called. Next 
+% This function takes a variable, retrieves the variable name, and then
+% obtains the line in the parent function from which it was called. Next
 % the variable name, line number, and variable are printed to the console
 
 % Get variable name

@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>function [Transfer_Functions] = get_EOM(DOF)</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-02"><meta name="DC.source" content="get_EOM.m"><style type="text/css">
+      --><title>function [Transfer_Functions] = get_EOM(DOF)</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-07"><meta name="DC.source" content="get_EOM.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -324,7 +324,7 @@ torque = [0*temp 0*temp; 0*temp 0*temp; 0*temp 0*temp];
 
     torque(i) = simplify(torque(i));
 <span class="keyword">end</span>
-EOM = torque;
+EOM = torque
 </pre><h2 id="11">Finding Laplace EOM</h2><p>pull apart</p><pre class="codeinput">Ts = torque;
 eq1 = Ts(1,2);
 eq2 = Ts(2,2);
@@ -558,7 +558,7 @@ E(1,1) = (Ts(1,1) == Ts(1,2));
 E(2,1) = (Ts(2,1) == Ts(2,2));
 E(3,1) = (Ts(3,1) == Ts(3,2));
 
-Laplace_EOM = E;
+Laplace_EOM = E
 </pre><h2 id="16">Finding Transfer Functions</h2><pre class="codeinput">signpost(verbose,<span class="string">'Finding Transfer Functions'</span>)
 
 <span class="comment">% tf 1</span>
@@ -610,7 +610,7 @@ a = A3;
 
 Solution(3,1) = f;
 
-Transfer_Functions = Solution;
+Transfer_Functions = Solution
 </pre><h2 id="17">Tidy Up</h2><pre class="codeinput">signpost(verbose,<span class="string">'Done: get_EOM()'</span>)
 </pre><pre class="codeinput"><span class="keyword">end</span>
 </pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
@@ -892,7 +892,7 @@ for i = 1:N
     
     torque(i) = simplify(torque(i));
 end
-EOM = torque;
+EOM = torque
 
 %% Finding Laplace EOM
 % pull apart
@@ -1142,7 +1142,7 @@ E(1,1) = (Ts(1,1) == Ts(1,2));
 E(2,1) = (Ts(2,1) == Ts(2,2));
 E(3,1) = (Ts(3,1) == Ts(3,2));
 
-Laplace_EOM = E;
+Laplace_EOM = E
 
 %% Finding Transfer Functions
 signpost(verbose,'Finding Transfer Functions')
@@ -1196,7 +1196,7 @@ end
 
 Solution(3,1) = f;
 
-Transfer_Functions = Solution;
+Transfer_Functions = Solution
 
 %% Tidy Up
 signpost(verbose,'Done: get_EOM()')

@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>function [ ] = p(variable)</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-10-05"><meta name="DC.source" content="p.m"><style type="text/css">
+      --><title>function [ ] = p(variable)</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-07"><meta name="DC.source" content="p.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,7 +67,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
   </style></head><body><div class="content"><h1>function [ ] = p(variable)</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">p - Quick Print</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> [ ] = p(variable)
-</pre><h2>p - Quick Print<a name="2"></a></h2><p>This function takes a variable, retrieves the variable name, and then obtains the line in the parent function from which it was called. Next the variable name, line number, and variable are printed to the console</p><pre class="codeinput"><span class="comment">% Get variable name</span>
+</pre><h2 id="2">p - Quick Print</h2><p>This function takes a variable, retrieves the variable name, and then obtains the line in the parent function from which it was called. Next the variable name, line number, and variable are printed to the console</p><pre class="codeinput"><span class="comment">% Get variable name</span>
 variable_name = inputname(1);
 
 <span class="comment">% Get current line (in parent -&gt; 2) from stack</span>
@@ -77,8 +77,13 @@ current_line = stack(2).line;
 <span class="comment">% Print</span>
 disp([<span class="string">'"'</span>,variable_name,<span class="string">'" at line '</span>, num2str(current_line),<span class="string">': '</span>])
 disp(variable)
+</pre><pre class="codeoutput error">Error using inputname
+Argument number is not valid.
+
+Error in p (line 12)
+variable_name = inputname(1);
 </pre><pre class="codeinput"><span class="keyword">end</span>
-</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% function [ ] = p(variable)
 %
@@ -86,8 +91,8 @@ disp(variable)
 
 function [ ] = p(variable)
 %% p - Quick Print
-% This function takes a variable, retrieves the variable name, and then 
-% obtains the line in the parent function from which it was called. Next 
+% This function takes a variable, retrieves the variable name, and then
+% obtains the line in the parent function from which it was called. Next
 % the variable name, line number, and variable are printed to the console
 
 % Get variable name
