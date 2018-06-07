@@ -1,7 +1,7 @@
 %% function [] = imma_real_boy(Transfer_Functions)
 %
 %%
-function [Transfer_Functions] = imma_real_boy(Transfer_Functions)
+function [Transfer_Functions] = materialise(Transfer_Functions)
 verbose = 1;
 
 syms g

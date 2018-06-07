@@ -1,6 +1,6 @@
 function [H] = compile_all(DOF, A)
 Degrees_Of_Freedom = DOF
-Angle_To_Analyse = A
+Degree_To_Analyse = A
 
 %% REMEMBER EVERYTHING IS IN RADIANS
 %%
