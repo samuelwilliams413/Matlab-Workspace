@@ -7,38 +7,38 @@ p = 10^-12
 u = 10^-9
 n = 10^-6
 m = 10^-3
-k = 10^3
-Meg = 10^6
+K = 10^3
+M = 10^6
 G = 10^9
 
 %%  System Response
 
-F0  = 70 % 70kHz
+F0  = 70*K % 70kHz
 C1  = 100*p % 100pF
-R4  = 68*k % 68kOhm 
-Q = 0.5;
+R4  = 68*K % 68kOhm 
+Q = 1;
 
 %%  Calculations
 
 H = (1/3) * (6.5 - 1/Q);
 
-j = 2*pi*F0*C1;
+k = 2*pi*F0*C1;
 R5 = R4/(H-1);
 C2 = (1/2)*C1;
-R1 = 2/j;
-R2 = 2/(3*j);
-R3 = 4/j;
+R1 = 2/k;
+R2 = 2/(3*k);
+R3 = 4/k;
 
 
 
 %%  Results
 
 clc
-R1  = R1/Meg
-R2  = R3/Meg
-Rf  = R2/k
-Ra  = R4/k
-Rb  = R5/k
+R1  = R1/K
+Rf  = R2/K
+R3  = R3/K
+Ra  = R4/K
+Rb  = R5/K
 C1  = C1/p
 C2  = C2/p
 Gain = H
