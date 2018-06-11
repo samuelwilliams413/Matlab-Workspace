@@ -1,3 +1,5 @@
+%% Band Pass Filter (SallenKey)
+%
 function [] = BandPassFilterSallenKey()
 % Generate component values for bandpass filter (sallen-key) 
 %   Select C1 & Ra, then determine the rest of the values. To ensure
@@ -30,17 +32,15 @@ R2 = 2/(3*k);
 R3 = 4/k;
 
 
-
 %%  Results
 
-clc
-R1  = R1/K
-Rf  = R2/K
-R3  = R3/K
-Ra  = R4/K
-Rb  = R5/K
-C1  = C1/p
-C2  = C2/p
+R1  = R1
+Rf  = R2
+R3  = R3
+Ra  = R4
+Rb  = R5
+C1  = C1
+C2  = C2
 Gain = H
 
 end
